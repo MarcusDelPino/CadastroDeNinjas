@@ -1,9 +1,20 @@
 package dev.java10x.CadastrosDeNinjas.Ninjas;
+
 import dev.java10x.CadastrosDeNinjas.MIssoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 //Entity ele transforma uma classe em uma entidade do BD
 @Entity
+
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Data
+
 //Tabela
 @Table(name = "tb_cadastro")
 public class NinjaModel {
@@ -20,16 +31,6 @@ public class NinjaModel {
     @ManyToOne()
     @JoinColumn(name = "missoes_id") //foreing key ou chave estrangeira
     private MissoesModel missoes;
-
-    public NinjaModel() {
-    }
-
-    public NinjaModel(String nome, String email, int idade, String rank) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-        this.rank = rank;
-    }
 
 
 }
