@@ -1,5 +1,5 @@
-package dev.java10x.CadastrosDeNinjas;
-
+package dev.java10x.CadastrosDeNinjas.Ninjas;
+import dev.java10x.CadastrosDeNinjas.MIssoes.MissoesModel;
 import jakarta.persistence.*;
 
 //Entity ele transforma uma classe em uma entidade do BD
@@ -16,6 +16,11 @@ public class NinjaModel {
     private int idade;
     private String rank;
 
+    //@ManyToOne -> um ninja tem uma unica missao
+    @ManyToOne()
+    @JoinColumn(name = "missoes_id") //foreing key ou chave estrangeira
+    private MissoesModel missoes;
+
     public NinjaModel() {
     }
 
@@ -26,35 +31,5 @@ public class NinjaModel {
         this.rank = rank;
     }
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getRank() {
-        return rank;
-    }
-
-    public void setRank(String rank) {
-        this.rank = rank;
-    }
 }
