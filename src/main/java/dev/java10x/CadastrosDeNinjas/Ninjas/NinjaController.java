@@ -4,7 +4,7 @@ import jakarta.persistence.PostUpdate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninjas")
 public class NinjaController {
 
     @GetMapping("/boasvindas")
@@ -20,13 +20,13 @@ public class NinjaController {
     }
 
     // mostrar os ninjas
-    @GetMapping("/allninjas")
+    @GetMapping("/todosninjas")
     public String mostrarNinjas() {
         return "Mostrar todos os ninjas";
     }
 
     // procurar ninja por id
-    @GetMapping("/allid")
+    @GetMapping("/ninja")
     public String mostrarPorId() {
         return "Mostrar o ninja procurado";
     }
@@ -38,7 +38,7 @@ public class NinjaController {
     }
 
     // deletar ninja
-    @DeleteMapping("/deletarId")
+    @DeleteMapping("/deletar")
     public String deletarNinjaPorId() {
         return "Ninja deletado por id";
     }
