@@ -1,28 +1,34 @@
 package dev.java10x.CadastrosDeNinjas.Ninjas;
 
-import jakarta.persistence.PostUpdate;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/ninjas")
 public class NinjaController {
 
-    @GetMapping("/boasvindas")
+    private NinjaService ninjaService;
 
-    public String boasVindas(){
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
+
+    @GetMapping("/boasvindas")
+    public String boasVindas() {
         return "Esse minha é minha primeira mensagem nessa rota";
     }
 
     // add ninja
     @PostMapping("/criar")
-    public String criarNinja(){
+    public String criarNinja() {
         return "Criar Ninja";
     }
 
     // mostrar os ninjas
-    @GetMapping("/todosninjas")
-    public String mostrarNinjas() {
-        return "Mostrar todos os ninjas";
+    @GetMapping("/listarninjas")
+    public List<NinjaModel> listarNinjas() {
+        return ninjaService.listarNinjas();
     }
 
     // procurar ninja por id
