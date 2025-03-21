@@ -3,28 +3,46 @@ package dev.java10x.CadastrosDeNinjas.MIssoes;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("missoes")
 public class MissoesController {
 
-    @PostMapping("/criar")
-    public String criarMissoes(){
-        return "criando missoes";
+    private MissoesService missoesService;
+
+    public MissoesController(MissoesService missoesService) {
+        this.missoesService = missoesService;
     }
 
-    @GetMapping("/todasmissoes")
-    public String missoes(){
-        return "Todas as missões";
+    @PostMapping("/criarmissoes")
+    public MissoesModel criarMissoes(@RequestBody MissoesModel missoesModel){
+        return missoesService.criarMissoes(missoesModel);
+    }
+    // visualizar todas as missoes
+    @GetMapping("/listarmissoes")
+    public List<MissoesModel> missoes(){
+        return missoesService.listarMissoes();
     }
 
-    @PutMapping("/atualizar")
-    public String atualizarMissao(){
-        return "Atualizar missoes";
+    //lista missao por id
+    @GetMapping("/mostrarmissao/{id}")
+    public MissoesModel mostrarMissaoPorId(@PathVariable Long id){
+        return missoesService.mostrarMissaoPorId(id);
     }
 
-    @DeleteMapping("/deletar")
-    public String deletarMissoes(){
-        return "deletar missoes";
+    //deletar misssao
+    @DeleteMapping("/deletar/{id}")
+    public void deletarMissao(@PathVariable Long id){
+        missoesService.deletarMissao(id);
     }
+
+    // atualizar por id
+    @PutMapping("/atualizar/{id}")
+    public MissoesModel atualizarMissao(@RequestBody MissoesModel missoesAtualizada, @PathVariable Long id ){
+        return missoesService.atualizarMissao(id, missoesAtualizada);
+    }
+
+
 
 }
