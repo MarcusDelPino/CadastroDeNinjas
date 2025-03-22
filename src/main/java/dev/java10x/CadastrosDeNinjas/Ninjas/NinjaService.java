@@ -50,9 +50,9 @@ public class NinjaService {
     public NinjaDTO atualizarNinja(Long id, NinjaDTO ninjaDTO){
         Optional<NinjaModel> ninjaExistente =  ninjaRepository.findById(id);
         if(ninjaExistente.isPresent()){
-            NinjaModel ninjaAtualizado = ninjaMapper.map(ninjaDTO);
-            ninjaAtualizado.setId(id);
-            NinjaModel ninjaSalvo = ninjaRepository.save(ninjaAtualizado);
+            NinjaModel ninjaComDadosAtualizado = ninjaMapper.map(ninjaDTO);
+            ninjaComDadosAtualizado.setId(id);
+            NinjaModel ninjaSalvo = ninjaRepository.save(ninjaComDadosAtualizado);
             return ninjaMapper.map(ninjaSalvo);
         }
         return null;
