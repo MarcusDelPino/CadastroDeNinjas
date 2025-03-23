@@ -12,7 +12,7 @@ import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "missoes")
 @Data
 
 //Tabela
