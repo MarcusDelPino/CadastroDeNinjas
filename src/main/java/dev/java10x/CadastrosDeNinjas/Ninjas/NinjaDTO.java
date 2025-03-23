@@ -3,10 +3,12 @@ import dev.java10x.CadastrosDeNinjas.MIssoes.MissoesModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class NinjaDTO {
     private Long id;
     private String nome;
