@@ -10,8 +10,8 @@ import lombok.ToString;
 //Entity ele transforma uma classe em uma entidade do BD
 @Entity
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString(exclude = "missoes")
 @Data
 
