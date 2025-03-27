@@ -38,7 +38,8 @@ public class NinjaService {
     //listar ninja por ID
     public NinjaDTO listarNinjasPorId(Long idNinja) {
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(idNinja);
-        return ninjaPorId.map(ninjaMapper::map).orElse(null);
+        return ninjaPorId.map(ninjaMapper::map)
+                .orElse(null);
     }
 
 
